@@ -13,6 +13,8 @@ const AddTodo = (props) => {
         }
         else{
             props.addTodo(title, desc);
+            setTitle("");
+            setDesc("");
         }
     }
   return (

@@ -4,9 +4,16 @@ import Todos from "./MyComponents/Todos";
 import Footer from "./MyComponents/Footer";
 import TodoItem from './MyComponents/TodoItem';
 import AddTodo from './MyComponents/AddTodo';
-import React, { useState } from 'react';
+import React, { useState,useEffect} from 'react';
 
 function App() {
+  let initTodo;
+  if (localStorage.getItem("todos")===null){
+    initTodo = [];
+  }
+  else{
+    initTodo = JSON.parse(localStorage.getItem("todos"));
+  }
   const onDelete = (todo)=>{
     console.log("I am ondelete of todo","todo");
     // deleting this way in react does not work
@@ -32,27 +39,11 @@ function App() {
     }
     setTodos([...todos,myTodo]);
     console.log(myTodo);
-    }
-  const [todos, setTodos] = useState([
-    {
-      sno:1,
-      title: "Go to the market",
-      desc: "You need to go to the market to buy food"
-
-    },
-    {
-      sno:2,
-      title: "Go to the shopping mall",
-      desc: "You need to go to the shopping mall to buy clothes"
-
-    },
-    {
-      sno:3,
-      title: "Go to the library",
-      desc: "You need to go to the library to borrow books"
-
-    },
-  ]);
+  }
+  const [todos, setTodos] = useState(initTodo);
+    useEffect(()=>{
+      localStorage.setItem("todos", JSON.stringify(todos));
+    }, [todos]);
   return (
     <>
     <Header title="My Todos List" searchBar={true}/>
@@ -62,6 +53,5 @@ function App() {
     </>
   );
 }
-
 
 export default App;
