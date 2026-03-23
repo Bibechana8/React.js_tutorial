@@ -3,6 +3,7 @@ import Header from "./MyComponents/Header";
 import Todos from "./MyComponents/Todos";
 import Footer from "./MyComponents/Footer";
 import TodoItem from './MyComponents/TodoItem';
+import AddTodo from './MyComponents/AddTodo';
 import React, { useState } from 'react';
 
 function App() {
@@ -38,6 +39,7 @@ function App() {
   return (
     <>
     <Header title="My Todos List" searchBar={true}/>
+    <AddTodo/>
     <Todos todos={todos} onDelete={onDelete}/>
     <Footer/>
     
