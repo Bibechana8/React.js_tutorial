@@ -2,7 +2,8 @@ import React from 'react'
 
 const AddTodo = () => {
   return (
-    <div>
+    <div className="container my-3">
+        <h3>Add a Todo</h3>
         <form>
   <div class="mb-3">
     <label for="exampleInputEmail1" class="form-label">Email address</label>
@@ -17,7 +18,7 @@ const AddTodo = () => {
     <input type="checkbox" class="form-check-input" id="exampleCheck1"/>
     <label class="form-check-label" for="exampleCheck1">Check me out</label>
   </div>
-  <button type="submit" class="btn btn-primary">Submit</button>
+  <button type="submit" class="btn btn-sm btn-success">Submit</button>
 </form>
       
     </div>
